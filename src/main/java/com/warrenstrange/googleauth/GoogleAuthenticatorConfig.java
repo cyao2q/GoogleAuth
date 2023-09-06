@@ -39,7 +39,7 @@ public class GoogleAuthenticatorConfig
     private int codeDigits = 6;
     private int numberOfScratchCodes = 5;
     private int keyModulus = (int) Math.pow(10, codeDigits);
-    private int secretBits = 160;
+    private int secretBits = 80;
     private KeyRepresentation keyRepresentation = KeyRepresentation.BASE32;
     private HmacHashFunction hmacHashFunction = HmacHashFunction.HmacSHA1;
 
@@ -209,9 +209,9 @@ public class GoogleAuthenticatorConfig
 
         public GoogleAuthenticatorConfigBuilder setSecretBits(int secretBits)
         {
-            if (secretBits < 128)
+            if (secretBits < 80)
             {
-                throw new IllegalArgumentException("Secret bits must be greater than or equal to 128.");
+                throw new IllegalArgumentException("Secret bits must be greater than or equal to 80.");
             }
 
             if (secretBits % 8 != 0)
